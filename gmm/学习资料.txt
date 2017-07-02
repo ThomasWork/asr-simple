@@ -1,0 +1,5 @@
+C++写的GMM，附有中文博客链接。
+https://github.com/luxiaoxun/KMeans-GMM-HMM/blob/master/GMM.cpp
+
+高斯混合模型的中文博客：
+http://blog.pluskid.org/?p=39
