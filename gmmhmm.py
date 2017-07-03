@@ -1,4 +1,4 @@
-#coding='UTF-8'
+﻿#coding='UTF-8'
 import scipy.stats as st
 import numpy as np
 
@@ -164,9 +164,12 @@ class gmmhmm:
             return out
 
 if __name__ == "__main__":
-    rstate = np.random.RandomState(0)
-    t1 = np.ones((4, 40)) + .001 * rstate.rand(4, 40)
-    t1 /= t1.sum(axis=0)
+    rstate = np.random.RandomState(0) #0表示局部的随机数种子，调用该方法可以获得一个对象
+    #每次运行程序生成的随机数序列结果相同，从而可以复现
+    #这里相当于保存了一个np.random的引用。
+
+    t1 = np.ones((4, 40)) + .001 * rstate.rand(4, 40)#4行40列的均匀分布,[0,1),   type(t1) = ndarray
+    t1 /= t1.sum(axis=0)#对每一列进行归一化。t1.astype(int),可以将元素类型转换为整型
     t2 = rstate.rand(*t1.shape)
     t2 /= t2.sum(axis=0)
     
