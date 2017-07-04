@@ -78,8 +78,8 @@ class gmmhmm:
 			self.covs = np.zeros((self.n_dims, self.n_dims, self.n_states))#4 * 4 * 2
 			#首先求协方差，然后利用两次diag函数取得对角阵
 			temp = np.diag(np.diag(np.cov(obs)))
-			print temp.shape
-			print self.covs
+		#	print temp.shape
+		#	print self.covs
 			self.covs += temp[:, :, None]
 		return self
 	
@@ -140,8 +140,9 @@ class gmmhmm:
 		print(obs.shape)
 		if len(obs.shape) == 2:
 			for i in range(n_iter):
-				self._em_init(obs)
+				self._em_init(obs)#实际上只会执行一次
 				log_likelihood = self._em_step(obs)
+				print log_likelihood
 		elif len(obs.shape) == 3:
 			count = obs.shape[0]
 			for n in range(count):

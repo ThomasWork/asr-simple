@@ -21,3 +21,7 @@ testTwoStar(a=1, b=2, c=3)
 
 x = np.arange(1, 9).reshape(2,4)
 print x
+
+#数据分片
+arr = np.arange(10)
+arr[1:5:2]#从1开始以步长为2取数据
